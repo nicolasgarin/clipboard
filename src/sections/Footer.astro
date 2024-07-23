@@ -1,3 +1,53 @@
+---
+type SocialIcons = {
+  imgSrc: string;
+  alt: string;
+  href: string;
+}
+
+type MenuItems = {
+  text: string;
+  href: string;
+}
+
+const socialIcons: SocialIcons[] = [
+  {
+    imgSrc: "clipboard/icon-facebook.svg",
+    alt: "Facebook",
+    href: "#",
+  },
+  {
+    imgSrc: "clipboard/icon-twitter.svg",
+    alt: "Twitter",
+    href: "#",
+  },
+  {
+    imgSrc: "clipboard/icon-instagram.svg",
+    alt: "Instagram",
+    href: "#",
+  },
+];
+
+const menuItems: MenuItems[] = [
+  {
+    text: "Home",
+    href: "#",
+  },
+  {
+    text: "Pricing",
+    href: "#",
+  },
+  {
+    text: "Product",
+    href: "#",
+  },
+  {
+    text: "About Us",
+    href: "#",
+  },
+];
+---
+
 <footer class="bg-gray-50">
     <div class="section-container">
       <div class="flex flex-col items-center justify-between md:flex-row">
@@ -37,24 +87,17 @@
 
           <!-- Social Icons -->
           <div class="flex justify-between w-32 py-1">
-            <a href="#"
-              ><img
-                src="clipboard/icon-facebook.svg"
-                alt=""
-                class="duration-200 ficon"
-            /></a>
-            <a href="#"
-              ><img
-                src="clipboard/icon-twitter.svg"
-                alt=""
-                class="duration-200 ficon"
-            /></a>
-            <a href="#"
-              ><img
-                src="clipboard/icon-instagram.svg"
-                alt=""
-                class="duration-200 ficon"
-            /></a>
+            {
+              socialIcons.map((socialIcon) => (
+                <a href={socialIcon.href}>
+                  <img
+                    src={socialIcon.imgSrc}
+                    alt={socialIcon.alt}
+                    class="duration-200 ficon"
+                  />
+                </a>
+              ))
+            }
           </div>
         </div>
       </div>
