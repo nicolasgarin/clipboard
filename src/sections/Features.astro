@@ -1,43 +1,49 @@
-<section id="features">
-    <div class="section-container my-20">
-      <div class="relative flex flex-col md:flex-row md:space-x-32">
-        <!-- Image -->
-        <div class="md:w-1/2">
-          <img
-            src="/clipboard/image-computer.png"
-            alt=""
-            class="md:absolute top-0 right-[50%]"
-          />
-        </div>
+---
+type FeaturesItems = {
+  title: string;
+  description: string;
+};
 
-        <!-- Items Container -->
-        <div
-          class="flex flex-col mt-16 mb-24 space-y-12 text-xl md:w-1/2 md:mb-60 md:text-left md:pl-16"
-        >
-          <!-- Item 1 -->
-          <div>
-            <h5>Quick Search</h5>
-            <p class="max-w-md text-grayishBlue">
-              Easily search your snippets by content, category, web address,
-              application, and more.
-            </p>
-          </div>
-          <!-- Item 2 -->
-          <div>
-            <h5>iCloud Sync</h5>
-            <p class="max-w-md text-grayishBlue">
-              Instantly saves and syncs snippets across all your devices.
-            </p>
-          </div>
-          <!-- Item 3 -->
-          <div>
-            <h5>Completely History</h5>
-            <p class="max-w-md text-grayishBlue">
-              Retrieve any snippets from the first moment you started using
-              the app.
-            </p>
-          </div>
-        </div>
+const featuresItems: FeaturesItems[] = [
+  {
+    title: "Search",
+    description:
+      "Search your snippets by content, category, web address, application, and more.",
+  },
+  {
+    title: "iCloud Sync",
+    description:
+      "Organize your bookmarks, passwords, and notes with the click of a button.",
+  },
+  {
+    title: "Completely History",
+    description:
+      "Retrieve any snippets from the first moment you started using the app.",
+  },
+];
+---
+<section id="features">
+  <div class="section-container my-20">
+    <div class="relative flex flex-col md:flex-row md:space-x-32">
+      <div class="md:w-1/2">
+        <img
+          src="/clipboard/image-computer.png"
+          alt=""
+          class="md:absolute top-0 right-[50%]"
+        />
+      </div>
+      <div
+        class="flex flex-col mt-16 mb-24 space-y-12 text-xl md:w-1/2 md:mb-60 md:text-left md:pl-16"
+      >
+        {
+          featuresItems.map((feature) => (
+            <div>
+              <h5>{feature.title}</h5>
+              <p class="max-w-md text-grayishBlue">{feature.description}</p>
+            </div>
+          ))
+        }
       </div>
     </div>
-  </section>
+  </div>
+</section>
